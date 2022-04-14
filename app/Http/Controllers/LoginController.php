@@ -20,14 +20,8 @@ class LoginController extends Controller
     {
         $credentials = $request->validate([
             'nik' => 'required|numeric',
-            'name' => 'required'
+            'password' => 'required'
         ]);
-
-        // $user = User::find(1);
-        // if(Auth::login($user)) {
-        //     $request->session()->regenerate();
-        //     return redirect()->intended('/home');
-        // }
 
         if(Auth::attempt($credentials)) {
             $request->session()->regenerate();
