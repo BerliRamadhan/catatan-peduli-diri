@@ -26,6 +26,14 @@
 
     <div class="row justify-content-end mt-3">
         <div class="col-md-11 border rounded-3 p-3">
+
+            @if(session()->has('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+
             <table class="table table-striped table-hover table-sm">
                 <thead class="table-dark">
                     <tr>
@@ -37,27 +45,15 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($catatans as $catatan)
                     <tr>
-                        <th scope="row">1</th>
-                        <td>13-09-2021</td>
-                        <td>08:00</td>
-                        <td>Toko Buku Hangat</td>
-                        <td>36.2</td>
+                        <th scope="row">{{ $loop->iteration }}</th>
+                        <td>{{ $catatan->tanggal }}</td>
+                        <td>{{ $catatan->waktu }}</td>
+                        <td>{{ $catatan->lokasi }}</td>
+                        <td>{{ $catatan->suhu }}</td>
                     </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>13-09-2021</td>
-                        <td>10:00</td>
-                        <td>Bulan Dept Store</td>
-                        <td>36.2</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>16-09-2021</td>
-                        <td>15:00</td>
-                        <td>Pagi Jogging Area</td>
-                        <td>37:00</td>
-                    </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

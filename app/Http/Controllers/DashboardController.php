@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Catatan;
 
 class DashboardController extends Controller
 {
@@ -16,7 +17,8 @@ class DashboardController extends Controller
     public function catatan()
     {
         return view('dashboard.catatanPerjalanan.index', [
-            'title' => 'Catatan Perjalanan'
+            'title' => 'Catatan Perjalanan',
+            'catatans' => Catatan::all()
         ]);
     }
 
