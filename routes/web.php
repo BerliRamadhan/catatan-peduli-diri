@@ -15,7 +15,10 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
-Route::get('/', [LoginController::class, 'index']);
+Route::get('/', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'autentikasi']);
+Route::get('/logout', [LoginController::class, 'logout']);
 
-Route::get('/home', [DashboardController::class, 'index']);
+Route::get('/home', [DashboardController::class, 'index'])->middleware('auth');
+Route::get('/catatan', [DashboardController::class, 'catatan'])->middleware('auth');
+Route::get('/buat', [DashboardController::class, 'buat'])->middleware('auth');
