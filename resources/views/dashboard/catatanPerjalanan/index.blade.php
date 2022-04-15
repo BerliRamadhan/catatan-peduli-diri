@@ -37,21 +37,31 @@
             <table class="table table-striped table-hover table-sm">
                 <thead class="table-dark">
                     <tr>
-                        <th scope="col">#</th>
+                        {{-- <th scope="col">#</th> --}}
                         <th scope="col">Tanggal</th>
                         <th scope="col">Waktu</th>
                         <th scope="col">Lokasi</th>
                         <th scope="col">Suhu Tubuh</th>
+                        <th scope="col">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($catatans as $catatan)
                     <tr>
-                        <th scope="row">{{ $loop->iteration }}</th>
+                        {{-- <th scope="row">{{ $loop->iteration }}</th> --}}
                         <td>{{ $catatan->tanggal }}</td>
                         <td>{{ $catatan->waktu }}</td>
                         <td>{{ $catatan->lokasi }}</td>
                         <td>{{ $catatan->suhu }}</td>
+                        <td>
+                            <a href="#" class="badge bg-primary"><i class="fa fa-eye"></i></span></a>
+                            <a href="#" class="badge bg-warning"><i class="fa fa-pencil"></i></span></a>
+                            <form action="/catat/{{ $catatan->id }}" method="post" class="d-inline">
+                                @method('delete')
+                                @csrf
+                                <button type="submit" class="badge bg-danger border-0"><i class="fa fa-trash"></i></button>
+                            </form>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>

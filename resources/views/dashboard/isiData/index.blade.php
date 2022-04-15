@@ -11,12 +11,19 @@
                         <label for="tanggal" class="col-form-label">Tanggal</label>
                     </div>
                     <div class="col-5">
-                        <input type="text" id="tanggal" name="tanggal" class="form-control @error('tanggal') is-invalid @enderror" aria-describedby="passwordHelpInline" value="{{ old('tanggal') }}">
-                        @error('tanggal')
-                            <div class="invalid-feedback">
-                            {{ $message }}
-                            </div>
-                        @enderror
+                        <div class="input-group date" id="datepicker">
+                            <input type="text" name="tanggal" class="form-control @error('tanggal') is-invalid @enderror" autocomplete="off">
+                            <span class="input-group-append">
+                                <span class="input-group-text bg-white d-block">
+                                    <i class="fa fa-calendar"></i>
+                                </span>
+                            </span>
+                            @error('tanggal')
+                                <div class="invalid-feedback">
+                                {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
                     </div>
                 </div>
     
@@ -36,7 +43,7 @@
     
                 <div class="row g-3 align-items-center mb-3">
                     <div class="col-3">
-                        <label for="lokasi" class="col-form-label">Lokasi yang dikunjungi</label>
+                        <label for="lokasi" class="col-form-label">Lokasi yang Dikunjungi</label>
                     </div>
                     <div class="col-5">
                         <input type="text" id="lokasi" name="lokasi" class="form-control @error('lokasi') is-invalid @enderror" aria-describedby="passwordHelpInline" value="{{ old('lokasi') }}">

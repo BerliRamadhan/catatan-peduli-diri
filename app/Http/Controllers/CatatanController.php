@@ -36,10 +36,10 @@ class CatatanController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'tanggal' => 'required|max:10',
+            'tanggal' => 'required|max:10|date',
             'waktu' => 'required|max:5',
             'lokasi' => 'required|max:100',
-            'suhu' => 'required|max:4'
+            'suhu' => 'required|numeric|digits_between:1,4'
         ]);
 
         Catatan::create($validatedData);
@@ -53,7 +53,7 @@ class CatatanController extends Controller
      * @param  \App\Models\Catatan  $catatan
      * @return \Illuminate\Http\Response
      */
-    public function show(Catatan $catatan)
+    public function show(Catatan $catat)
     {
         //
     }
@@ -64,7 +64,7 @@ class CatatanController extends Controller
      * @param  \App\Models\Catatan  $catatan
      * @return \Illuminate\Http\Response
      */
-    public function edit(Catatan $catatan)
+    public function edit(Catatan $catat)
     {
         //
     }
@@ -76,7 +76,7 @@ class CatatanController extends Controller
      * @param  \App\Models\Catatan  $catatan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Catatan $catatan)
+    public function update(Request $request, Catatan $catat)
     {
         //
     }
@@ -87,8 +87,9 @@ class CatatanController extends Controller
      * @param  \App\Models\Catatan  $catatan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Catatan $catatan)
+    public function destroy(Catatan $catat)
     {
-        //
+        Catatan::destroy($catat->id);
+        return redirect('/catatan')->with('success', 'Catatan dihapus!');
     }
 }
