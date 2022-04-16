@@ -5,6 +5,10 @@
     <nav>
         <a href="/home" class="text-decoration-none">Home </a> |
         <a href="/catatan" class="text-decoration-none">Catatan Perjalanan </a> |
-        <a href="/buat" class="text-decoration-none">Isi Data</a>
+        <a href="/buat" class="text-decoration-none">Isi Data </a> |
+        <form action="/logout" method="POST" class="d-inline">
+            @csrf
+            <button type="submit" class="buttonliling" onclick="return confirm('Logout?')">Logout</button>
+        </form>
     </nav>
 </header>
