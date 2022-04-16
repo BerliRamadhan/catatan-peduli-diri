@@ -3,9 +3,10 @@
 @section('container')
     <div class="row justify-content-end">
         <div class="col-md-10 border rounded-3 p-4 ps-5">
-            <h3 class="mb-3">Buat Catatan</h3>
+            <h3 class="mb-3">Edit Catatan</h3>
 
-            <form action="/catat" method="POST">
+            <form action="/catat/{{ $catatan->id }}" method="POST">
+                @method('put')
                 @csrf
                 <div class="row g-3 align-items-center mb-3">
                     <div class="col-3">
@@ -13,7 +14,7 @@
                     </div>
                     <div class="col-5">
                         <div class="input-group date" id="datepicker">
-                            <input type="text" name="tanggal" class="form-control @error('tanggal') is-invalid @enderror" autocomplete="off">
+                            <input type="text" name="tanggal" class="form-control @error('tanggal') is-invalid @enderror" autocomplete="off" value={{ old('tanggal', $catatan->tanggal) }}>
                             <span class="input-group-append">
                                 <span class="input-group-text bg-white d-block">
                                     <i class="fa fa-calendar"></i>
@@ -33,7 +34,7 @@
                         <label for="waktu" class="col-form-label">Waktu</label>
                     </div>
                     <div class="col-5">
-                        <input type="text" id="waktu" name="waktu" class="form-control @error('waktu') is-invalid @enderror" aria-describedby="passwordHelpInline" value="{{ old('waktu') }}">
+                        <input type="text" id="waktu" name="waktu" class="form-control @error('waktu') is-invalid @enderror" aria-describedby="passwordHelpInline" value="{{ old('waktu', $catatan->waktu) }}">
                         @error('waktu')
                             <div class="invalid-feedback">
                             {{ $message }}
@@ -47,7 +48,7 @@
                         <label for="lokasi" class="col-form-label">Lokasi yang Dikunjungi</label>
                     </div>
                     <div class="col-5">
-                        <input type="text" id="lokasi" name="lokasi" class="form-control @error('lokasi') is-invalid @enderror" aria-describedby="passwordHelpInline" value="{{ old('lokasi') }}">
+                        <input type="text" id="lokasi" name="lokasi" class="form-control @error('lokasi') is-invalid @enderror" aria-describedby="passwordHelpInline" value="{{ old('lokasi', $catatan->lokasi) }}">
                         @error('lokasi')
                             <div class="invalid-feedback">
                             {{ $message }}
@@ -61,7 +62,7 @@
                         <label for="suhu" class="col-form-label">Suhu Tubuh</label>
                     </div>
                     <div class="col-5">
-                        <input type="text" id="suhu" name="suhu" class="form-control @error('suhu') is-invalid @enderror" aria-describedby="passwordHelpInline" value="{{ old('suhu') }}">
+                        <input type="text" id="suhu" name="suhu" class="form-control @error('suhu') is-invalid @enderror" aria-describedby="passwordHelpInline" value="{{ old('suhu', $catatan->suhu) }}">
                         @error('suhu')
                             <div class="invalid-feedback">
                             {{ $message }}
@@ -70,7 +71,7 @@
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary float-end">Simpan</button>
+                <button type="submit" class="btn btn-primary float-end">Edit</button>
             </form>
 
 

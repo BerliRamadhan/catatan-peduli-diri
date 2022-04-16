@@ -1,5 +1,5 @@
 <header class="container mt-5 clearfix">
-    <img src="img/default.png" style="width: 150px" alt="Gambar Saya" class="img-thumbnail float-start me-4">
+    <img src="/img/default.png" style="width: 150px" alt="Gambar Saya" class="img-thumbnail float-start me-4">
     <h1>Peduli Diri</h1>
     <p>Catatan Perjalanan</p>
     <nav>

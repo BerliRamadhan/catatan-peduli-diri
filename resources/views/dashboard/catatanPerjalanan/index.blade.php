@@ -54,8 +54,8 @@
                         <td>{{ $catatan->lokasi }}</td>
                         <td>{{ $catatan->suhu }}</td>
                         <td>
-                            <a href="#" class="badge bg-primary"><i class="fa fa-eye"></i></span></a>
-                            <a href="/catatan/edit/{{ $catatan->id }}" class="badge bg-warning" data-bs-toggle="modal" data-bs-target="#editCatatan"><i class="fa fa-pencil"></i></span></a>
+                            {{-- <a href="/catat/{{ $catatan->id }}" class="badge bg-primary"><i class="fa fa-eye"></i></span></a> --}}
+                            <a href="/catat/{{ $catatan->id }}/edit" class="badge bg-warning"><i class="fa fa-pencil"></i></span></a>
                             <form action="/catat/{{ $catatan->id }}" method="post" class="d-inline">
                                 @method('delete')
                                 @csrf

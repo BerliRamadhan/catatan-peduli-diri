@@ -66,7 +66,10 @@ class CatatanController extends Controller
      */
     public function edit(Catatan $catat)
     {
-        //
+        return view('dashboard.isiData.edit', [
+            'title' => 'Edit Catatan',
+            'catatan' => $catat
+        ]);
     }
 
     /**
@@ -78,7 +81,17 @@ class CatatanController extends Controller
      */
     public function update(Request $request, Catatan $catat)
     {
-        //
+        $validatedData = $request->validate([
+            'tanggal' => 'required|max:10|date',
+            'waktu' => 'required|max:5',
+            'lokasi' => 'required|max:100',
+            'suhu' => 'required|numeric|digits_between:1,4'
+        ]);
+
+        Catatan::where('id', $catat->id)
+                ->update($validatedData);
+
+        return redirect('/catatan')->with('success', 'Catatan berhasil diedit!');
     }
 
     /**
