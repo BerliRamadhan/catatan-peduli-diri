@@ -35,11 +35,11 @@
                     @enderror
                 </div>
                 <div class="justify-content-between d-flex">
-                    <a class="w-30 btn btn-md btn-primary mt-3" href="#">Saya Pengguna Baru</a>
-                    <button class="w-30 btn btn-md btn-primary mt-3" type="submit">Login/Masuk</button>
+                    {{-- <a class="w-30 btn btn-md btn-primary mt-3" href="#">Saya Pengguna Baru</a> --}}
+                    <button class="w-100 btn btn-md btn-primary mt-3" type="submit">Login/Masuk</button>
                 </div>
             </form>
-            {{-- <small class="d-block text-center mt-3"><a href="#">Saya Pengguna Baru</a></small> --}}
+            <small class="d-block text-center mt-3"><a href="#">Saya Pengguna Baru</a></small>
         </main>
     </div>
 </div>

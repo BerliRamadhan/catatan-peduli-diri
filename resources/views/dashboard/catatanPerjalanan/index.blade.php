@@ -55,11 +55,11 @@
                         <td>{{ $catatan->suhu }}</td>
                         <td>
                             <a href="#" class="badge bg-primary"><i class="fa fa-eye"></i></span></a>
-                            <a href="#" class="badge bg-warning"><i class="fa fa-pencil"></i></span></a>
+                            <a href="/catatan/edit/{{ $catatan->id }}" class="badge bg-warning" data-bs-toggle="modal" data-bs-target="#editCatatan"><i class="fa fa-pencil"></i></span></a>
                             <form action="/catat/{{ $catatan->id }}" method="post" class="d-inline">
                                 @method('delete')
                                 @csrf
-                                <button type="submit" class="badge bg-danger border-0"><i class="fa fa-trash"></i></button>
+                                <button type="submit" class="badge bg-danger border-0" onclick="return confirm('Apakah anda yakin?')"><i class="fa fa-trash"></i></button>
                             </form>
                         </td>
                     </tr>
@@ -70,4 +70,66 @@
     </div>
     
     <a href="/buat" class="btn btn-primary float-end mt-3">Isi Catatan Perjalanan</a>
+
+
+
+    {{-- Modal --}}
+    <div class="modal fade" id="editCatatan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModal">Edit Catatan</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="">
+                    <div class="modal-body">
+                        <div class="input-group mb-3 date" id="datepicker">
+                            <input type="text" name="tanggal" class="form-control @error('tanggal') is-invalid @enderror" autocomplete="off" placeholder="Masukkan Tanggal">
+                            <span class="input-group-append">
+                                <span class="input-group-text bg-white d-block">
+                                    <i class="fa fa-calendar"></i>
+                                </span>
+                            </span>
+                            @error('tanggal')
+                                <div class="invalid-feedback">
+                                {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <input type="text" id="waktu" name="waktu" class="form-control @error('waktu') is-invalid @enderror" value="{{ old('waktu') }}" placeholder="Masukkan Waktu">
+                            @error('waktu')
+                                <div class="invalid-feedback">
+                                {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        
+                        <div class="input-group mb-3">
+                            <input type="text" id="lokasi" name="lokasi" class="form-control @error('lokasi') is-invalid @enderror" value="{{ old('lokasi') }}" placeholder="Masukkan Lokasi">
+                            @error('lokasi')
+                                <div class="invalid-feedback">
+                                {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <input type="text" id="suhu" name="suhu" class="form-control @error('suhu') is-invalid @enderror" aria-describedby="passwordHelpInline" value="{{ old('suhu') }}" placeholder="Masukkan Suhu">
+                            @error('suhu')
+                                <div class="invalid-feedback">
+                                {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Tutup</button>
+                        <button type="submit" class="btn btn-primary">Edit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 @endsection
