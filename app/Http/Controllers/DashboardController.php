@@ -16,9 +16,15 @@ class DashboardController extends Controller
 
     public function catatan()
     {
+        $catatans = Catatan::where('user_id', auth()->user()->id);
+
+        if(request('urut')) {
+            $catatans->orderBy(request('urut'));
+        }
+
         return view('dashboard.catatanPerjalanan.index', [
             'title' => 'Catatan Perjalanan',
-            'catatans' => Catatan::where('user_id', auth()->user()->id)->get()
+            'catatans' => $catatans->get()
         ]);
     }
 

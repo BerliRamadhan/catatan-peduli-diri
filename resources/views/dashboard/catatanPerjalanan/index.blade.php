@@ -4,23 +4,24 @@
     <div class="row justify-content-end">
         <div class="col-md-11 border rounded-3 p-3">
 
-            <div class="row g-3">
-                    @csrf
+            <form action="/catatan" method="get">
+                <div class="row g-3">
                     <div class="col-sm-3">
                         <label for="urut" class="col-form-label">Urutkan Berdasarkan</label>
                     </div>
                     <div class="col-sm-3">
-                        <select class="form-select" aria-label="Default select example" id="urut">
-                            <option selected>Tanggal</option>
-                            <option value="1">Waktu</option>
-                            <option value="2">Lokasi</option>
-                            <option value="3">Suhu Tubuh</option>
+                        <select class="form-select" aria-label="Default select example" id="urut" name="urut">
+                            <option value="tanggal" {{ request('urut') == 'tanggal' ? 'selected' : '' }}>Tanggal</option>
+                            <option value="waktu" {{ request('urut') == 'waktu' ? 'selected' : '' }}>Waktu</option>
+                            <option value="lokasi" {{ request('urut') == 'lokasi' ? 'selected' : '' }}>Lokasi</option>
+                            <option value="suhu" {{ request('urut') == 'suhu' ? 'selected' : '' }}>Suhu Tubuh</option>
                         </select>
                     </div>
                     <div class="col-sm-3">
                         <button type="submit" class="btn btn-primary">Urutkan</button>
                     </div>
-            </div>
+                </div>
+            </form>
 
         </div>
     </div>
