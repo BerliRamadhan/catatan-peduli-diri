@@ -18,7 +18,7 @@
                         </select>
                     </div>
                     <div class="col-sm-3">
-                        <button type="submit" class="btn btn-primary">Urutkan</button>
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-filter"></i> Urutkan</button>
                     </div>
                 </div>
             </form>
@@ -71,7 +71,7 @@
         </div>
     </div>
     
-    <a href="/buat" class="btn btn-primary float-end mt-3 mb-5">Isi Catatan Perjalanan</a>
+    <a href="/buat" class="btn btn-primary float-end mt-3 mb-5"><i class="fa fa-plus"></i> Isi Catatan Perjalanan</a>
 
 
 
@@ -87,8 +87,8 @@
                         <p>Pada tanggal <span id="tanggal-catatan" class="fw-bold"></span> saya pergi ke <span id="tempat-catatan" class="fw-bold"></span> pada jam <span id="waktu-catatan" class="fw-bold"></span> dengan suhu <span id="suhu-catatan" class="fw-bold"></span></p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Tutup</button>
-                        <button type="submit" class="btn btn-primary">Edit</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Tutup</button>
+                        {{-- <button type="submit" class="btn btn-primary">Edit</button> --}}
                     </div>
                 </form>
             </div>
