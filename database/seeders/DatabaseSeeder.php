@@ -41,7 +41,7 @@ class DatabaseSeeder extends Seeder
 
         Catatan::create([
             'user_id' => 1,
-            'tanggal' => '13/09/2021',
+            'tanggal' => '2021/09/13',
             'waktu' => '08:00',
             'lokasi' => 'Toko Buku Hangat',
             'suhu' => '36.2'
@@ -49,7 +49,7 @@ class DatabaseSeeder extends Seeder
 
         Catatan::create([
             'user_id' => 1,
-            'tanggal' => '13/09/2021',
+            'tanggal' => '2021/09/13',
             'waktu' => '10:00',
             'lokasi' => 'Bulan Dept Store',
             'suhu' => '36.2'
@@ -57,7 +57,7 @@ class DatabaseSeeder extends Seeder
 
         Catatan::create([
             'user_id' => 1,
-            'tanggal' => '16/09/2021',
+            'tanggal' => '2021/09/16',
             'waktu' => '15:00',
             'lokasi' => 'Pagi Jogging Area',
             'suhu' => '37.0'

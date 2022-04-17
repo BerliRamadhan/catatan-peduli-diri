@@ -2,7 +2,7 @@
 
 @section('container')
     <div class="row justify-content-end">
-        <div class="col-md-10 border rounded-3 p-4 ps-5">
+        <div class="col-md-10 border rounded-3 p-4 ps-5 mb-5">
             <h3 class="mb-3">Edit Catatan</h3>
 
             <form action="/catat/{{ $catatan->id }}" method="POST">

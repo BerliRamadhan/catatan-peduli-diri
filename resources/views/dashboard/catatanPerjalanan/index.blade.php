@@ -71,12 +71,12 @@
         </div>
     </div>
     
-    <a href="/buat" class="btn btn-primary float-end mt-3">Isi Catatan Perjalanan</a>
+    <a href="/buat" class="btn btn-primary float-end mt-3 mb-5">Isi Catatan Perjalanan</a>
 
 
 
     {{-- Modal --}}
-    <div class="modal fade" id="editCatatan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    {{-- <div class="modal fade" id="editCatatan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -133,5 +133,5 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div> --}}
 @endsection
