@@ -56,7 +56,7 @@
                         <td>{{ $catatan->lokasi }}</td>
                         <td>{{ $catatan->suhu }}</td>
                         <td>
-                            {{-- <a href="/catat/{{ $catatan->id }}" class="badge bg-primary"><i class="fa fa-eye"></i></span></a> --}}
+                            <a href="/catat/{{ $catatan->id }}" class="badge bg-primary modal-view" data-bs-toggle="modal" data-bs-target="#viewModal" data-id="{{ $catatan->id }}"><i class="fa fa-eye"></i></span></a>
                             <a href="/catat/{{ $catatan->id }}/edit" class="badge bg-warning"><i class="fa fa-pencil"></i></span></a>
                             <form action="/catat/{{ $catatan->id }}" method="post" class="d-inline">
                                 @method('delete')
@@ -76,55 +76,15 @@
 
 
     {{-- Modal --}}
-    {{-- <div class="modal fade" id="editCatatan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="editModal">Edit Catatan</h5>
+                    <h5 class="modal-title" id="lokasi-catatan"></h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="">
                     <div class="modal-body">
-                        <div class="input-group mb-3 date" id="datepicker">
-                            <input type="text" name="tanggal" class="form-control @error('tanggal') is-invalid @enderror" autocomplete="off" placeholder="Masukkan Tanggal">
-                            <span class="input-group-append">
-                                <span class="input-group-text bg-white d-block">
-                                    <i class="fa fa-calendar"></i>
-                                </span>
-                            </span>
-                            @error('tanggal')
-                                <div class="invalid-feedback">
-                                {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
-
-                        <div class="input-group mb-3">
-                            <input type="text" id="waktu" name="waktu" class="form-control @error('waktu') is-invalid @enderror" value="{{ old('waktu') }}" placeholder="Masukkan Waktu">
-                            @error('waktu')
-                                <div class="invalid-feedback">
-                                {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
-                        
-                        <div class="input-group mb-3">
-                            <input type="text" id="lokasi" name="lokasi" class="form-control @error('lokasi') is-invalid @enderror" value="{{ old('lokasi') }}" placeholder="Masukkan Lokasi">
-                            @error('lokasi')
-                                <div class="invalid-feedback">
-                                {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
-
-                        <div class="input-group mb-3">
-                            <input type="text" id="suhu" name="suhu" class="form-control @error('suhu') is-invalid @enderror" aria-describedby="passwordHelpInline" value="{{ old('suhu') }}" placeholder="Masukkan Suhu">
-                            @error('suhu')
-                                <div class="invalid-feedback">
-                                {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
+                        <p>Pada tanggal <span id="tanggal-catatan" class="fw-bold"></span> saya pergi ke <span id="tempat-catatan" class="fw-bold"></span> pada jam <span id="waktu-catatan" class="fw-bold"></span> dengan suhu <span id="suhu-catatan" class="fw-bold"></span></p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Tutup</button>
@@ -133,5 +93,5 @@
                 </form>
             </div>
         </div>
-    </div> --}}
+    </div>
 @endsection

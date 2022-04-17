@@ -57,7 +57,7 @@ class CatatanController extends Controller
      */
     public function show(Catatan $catat)
     {
-        //
+        return $catat;
     }
 
     /**

@@ -1,17 +1,21 @@
-// $(function() {
+$(function() {
 
-//     $('.tampilModalEdit').on('click', function() {
-//         const id = $(this).data('id');
+    $('.modal-view').on('click', function() {
+        const id = $(this).data('id');
         
-//         $.ajax({
-//             url: 'http://127.0.0.1:8000/getEdit',
-//             data: {id : id},
-//             method: 'post',
-//             dataType: 'json',
-//             success: function(data) {
-//                 console.log(data);
-//             }
-//         });
-//     });
+        $.ajax({
+            url: '/catat/'+id,
+            data: {id : id},
+            method: 'GET',
+            success: function(data) {
+                console.log(data);
+                $('#lokasi-catatan').html(data.lokasi);
+                $('#tanggal-catatan').html(data.tanggal);
+                $('#tempat-catatan').html(data.lokasi);
+                $('#waktu-catatan').html(data.waktu);
+                $('#suhu-catatan').html(data.suhu);
+            }
+        });
+    });
 
-// });
+});
