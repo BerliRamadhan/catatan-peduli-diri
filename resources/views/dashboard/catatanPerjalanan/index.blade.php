@@ -57,7 +57,7 @@
                         <td>{{ $catatan->suhu }}</td>
                         <td>
                             <a href="/catat/{{ $catatan->id }}" class="badge bg-primary modal-view" data-bs-toggle="modal" data-bs-target="#viewModal" data-id="{{ $catatan->id }}"><i class="fa fa-eye"></i></span></a>
-                            <a href="/catat/{{ $catatan->id }}/edit" class="badge bg-warning"><i class="fa fa-pencil"></i></span></a>
+                            <a href="/catat/{{ $catatan->id }}/edit" class="badge bg-warning modal-edit" data-bs-toggle="modal" data-bs-target="#editModal" data-id="{{ $catatan->id }}"><i class="fa fa-pencil"></i></span></a>
                             <form action="/catat/{{ $catatan->id }}" method="post" class="d-inline">
                                 @method('delete')
                                 @csrf
@@ -75,7 +75,7 @@
 
 
 
-    {{-- Modal --}}
+    {{-- Modal View --}}
     <div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -83,12 +83,74 @@
                     <h5 class="modal-title" id="lokasi-catatan"></h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+                <div class="modal-body">
+                    <p>Pada tanggal <span id="tanggal-catatan" class="fw-bold"></span> saya pergi ke <span id="tempat-catatan" class="fw-bold"></span> pada jam <span id="waktu-catatan" class="fw-bold"></span> dengan suhu <span id="suhu-catatan" class="fw-bold"></span></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    {{-- Modal Edit --}}
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Catatan</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="" method="post">
+                    @method('put')
+                    @csrf
                     <div class="modal-body">
-                        <p>Pada tanggal <span id="tanggal-catatan" class="fw-bold"></span> saya pergi ke <span id="tempat-catatan" class="fw-bold"></span> pada jam <span id="waktu-catatan" class="fw-bold"></span> dengan suhu <span id="suhu-catatan" class="fw-bold"></span></p>
+                        <div class="input-group date mb-3" id="datepicker">
+                            <input type="text" id="tanggal" name="tanggal" class="form-control @error('tanggal') is-invalid @enderror" autocomplete="off" placeholder="Masukkan Tanggal">
+                            <span class="input-group-append">
+                                <span class="input-group-text bg-white d-block">
+                                    <i class="fa fa-calendar"></i>
+                                </span>
+                            </span>
+                            @error('tanggal')
+                                <div class="invalid-feedback">
+                                {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <input type="text" id="waktu" name="waktu" class="form-control @error('waktu') is-invalid @enderror" aria-describedby="passwordHelpInline" placeholder="Waktu">
+                            @error('waktu')
+                                <div class="invalid-feedback">
+                                {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <input type="text" id="lokasi" name="lokasi" class="form-control @error('lokasi') is-invalid @enderror" aria-describedby="passwordHelpInline" placeholder="Lokasi">
+                            @error('lokasi')
+                                <div class="invalid-feedback">
+                                {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
+                        <div class="input-group ">
+                            <input type="text" id="suhu" name="suhu" class="form-control @error('suhu') is-invalid @enderror" aria-describedby="passwordHelpInline" placeholder="Suhu Tubuh">
+                            @error('suhu')
+                                <div class="invalid-feedback">
+                                {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Tutup</button>
-                        {{-- <button type="submit" class="btn btn-primary">Edit</button> --}}
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Tutup</button>
+                        <button type="submit" class="btn btn-primary">Edit</button>
                     </div>
                 </form>
             </div>

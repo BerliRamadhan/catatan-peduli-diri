@@ -25,3 +25,4 @@ Route::get('/catatan', [DashboardController::class, 'catatan'])->middleware('aut
 Route::get('/buat', [DashboardController::class, 'buat'])->middleware('auth');
 
 Route::resource('catat', CatatanController::class);
+
