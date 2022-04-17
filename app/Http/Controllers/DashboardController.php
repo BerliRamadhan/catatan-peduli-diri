@@ -18,7 +18,7 @@ class DashboardController extends Controller
     {
         return view('dashboard.catatanPerjalanan.index', [
             'title' => 'Catatan Perjalanan',
-            'catatans' => Catatan::all()
+            'catatans' => Catatan::where('user_id', auth()->user()->id)->get()
         ]);
     }
 

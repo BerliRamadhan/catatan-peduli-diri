@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Catatan;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
@@ -36,6 +37,30 @@ class DatabaseSeeder extends Seeder
             'name' => 'Ilham Kurniawan',
             'email' => 'ilhamkurniawan@gmail.com',
             'password' => bcrypt('12345')
+        ]);
+
+        Catatan::create([
+            'user_id' => 1,
+            'tanggal' => '13/09/2021',
+            'waktu' => '08:00',
+            'lokasi' => 'Toko Buku Hangat',
+            'suhu' => '36.2'
+        ]);
+
+        Catatan::create([
+            'user_id' => 1,
+            'tanggal' => '13/09/2021',
+            'waktu' => '10:00',
+            'lokasi' => 'Bulan Dept Store',
+            'suhu' => '36.2'
+        ]);
+
+        Catatan::create([
+            'user_id' => 1,
+            'tanggal' => '16/09/2021',
+            'waktu' => '15:00',
+            'lokasi' => 'Pagi Jogging Area',
+            'suhu' => '37.0'
         ]);
     }
 }

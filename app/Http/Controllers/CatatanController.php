@@ -42,6 +42,8 @@ class CatatanController extends Controller
             'suhu' => 'required|numeric|digits_between:1,4'
         ]);
 
+        $validatedData['user_id'] = auth()->user()->id;
+
         Catatan::create($validatedData);
 
         return redirect('/catatan')->with('success', 'Catatan baru berhasil ditambahkan!');
