@@ -13,6 +13,7 @@
     
     {{-- My Style --}}
     <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="css/style.css">
     
     <title>Peduli Diri | {{ $title }}</title>
   </head>

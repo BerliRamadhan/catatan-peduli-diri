@@ -57,6 +57,10 @@ class CatatanController extends Controller
      */
     public function show(Catatan $catat)
     {
+        if($catat->user->id !== auth()->user()->id) {
+            abort(403);
+        }
+
         return $catat;
     }
 
@@ -68,10 +72,9 @@ class CatatanController extends Controller
      */
     public function edit(Catatan $catat)
     {
-        return view('dashboard.isiData.edit', [
-            'title' => 'Edit Catatan',
-            'catatan' => $catat
-        ]);
+        if($catat->user->id !== auth()->user()->id) {
+            abort(403);
+        }
     }
 
     /**

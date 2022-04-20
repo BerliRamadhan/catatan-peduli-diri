@@ -68,6 +68,7 @@
                     @endforeach
                 </tbody>
             </table>
+            {{ $catatans->links() }}
         </div>
     </div>
     

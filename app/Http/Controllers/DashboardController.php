@@ -24,7 +24,7 @@ class DashboardController extends Controller
 
         return view('dashboard.catatanPerjalanan.index', [
             'title' => 'Catatan Perjalanan',
-            'catatans' => $catatans->get()
+            'catatans' => $catatans->paginate(7)->withQueryString()
         ]);
     }
 

@@ -1,3 +1,7 @@
+body {
+  background-image: url('/img/bg-playstation.png');
+}
+
 .buttonliling {
     background: none!important;
     border: none;
