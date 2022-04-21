@@ -29,13 +29,23 @@
     <div class="row justify-content-end mt-3">
         <div class="col-md-11 border rounded-3 p-3">
 
+            
+            <form action="/catatan" method="get">
+                    <div class="col-sm-4 float-end mb-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="keyword" placeholder="Masukan Kata Kunci" aria-label="Recipient's username" aria-describedby="button-addon2" value="{{ request('keyword') }}">
+                            <button class="btn btn-primary" type="submit" id="button-addon2">Cari</button>
+                        </div>
+                    </div>
+            </form>
+
             @if(session()->has('success'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     {{ session('success') }}
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             @endif
-
+                
             <table class="table table-striped table-hover table-sm">
                 <thead class="table-dark">
                     <tr>
