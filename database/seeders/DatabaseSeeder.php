@@ -19,10 +19,10 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
         User::create([
-            'nik' => '1270112806050001',
-            'name' => 'Muhammad Azka Lufthansa',
-            'email' => 'azkalufthansa@gmail.com',
-            'password' => bcrypt('12345')
+            'nik' => '31134521231004',
+            'name' => 'Berlian Ramadhan',
+            'email' => 'berlianpratama2810@gmail.com',
+            'password' => bcrypt('23456')
         ]);
 
         User::create([
@@ -41,26 +41,26 @@ class DatabaseSeeder extends Seeder
 
         Catatan::create([
             'user_id' => 1,
-            'tanggal' => '2021/09/13',
-            'waktu' => '08:00',
-            'lokasi' => 'Toko Buku Hangat',
+            'tanggal' => '2022/06/27',
+            'waktu' => '10.00',
+            'lokasi' => 'Toko Buku Merauke',
+            'suhu' => '35.5'
+        ]);
+
+        Catatan::create([
+            'user_id' => 1,
+            'tanggal' => '2022/06/27',
+            'waktu' => '13.00',
+            'lokasi' => 'MDI Putsal',
             'suhu' => '36.2'
         ]);
 
         Catatan::create([
             'user_id' => 1,
-            'tanggal' => '2021/09/13',
-            'waktu' => '10:00',
-            'lokasi' => 'Bulan Dept Store',
-            'suhu' => '36.2'
-        ]);
-
-        Catatan::create([
-            'user_id' => 1,
-            'tanggal' => '2021/09/16',
+            'tanggal' => '2022/06/27',
             'waktu' => '15:00',
-            'lokasi' => 'Pagi Jogging Area',
-            'suhu' => '37.0'
+            'lokasi' => 'Teras Depan Rumah',
+            'suhu' => '36.5'
         ]);
     }
 }
